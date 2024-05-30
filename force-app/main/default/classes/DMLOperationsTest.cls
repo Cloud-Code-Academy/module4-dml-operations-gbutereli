@@ -195,7 +195,7 @@ public with sharing class DMLOperationsTest {
 		String accountName = 'Test Account';
 
 		// Test creating a new account
-		Test.startTest();
+		//Test.startTest();
 		Account upsertedAccount = DMLOperations.upsertAccount(accountName);
 
 		// Verify that the account was created
@@ -208,7 +208,7 @@ public with sharing class DMLOperationsTest {
 		upsertedAccount.Name = updatedAccountName;
 
 		Account updatedAccount = DMLOperations.upsertAccount(updatedAccountName);
-		Test.stopTest();
+		//Test.stopTest();
 
 		// Verify that the account was updated
 		System.assertEquals(updatedAccount.Id, updatedAccount.Id, 'Account Id should remain the same after update');
@@ -225,9 +225,9 @@ public with sharing class DMLOperationsTest {
 			new Contact(LastName = 'Smith', FirstName = 'Jane')
 		};
 
-		Test.startTest();
+		//Test.startTest();
 		DMLOperations.upsertAccountsWithContacts(testContacts);
-		Test.stopTest();
+		//Test.stopTest();
 
 		List<Account> accounts = [SELECT Id FROM Account];
 		System.assertEquals(2, accounts.size(), 'Two accounts should be created');
